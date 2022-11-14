@@ -1,0 +1,20 @@
+<div *ngIf="loaded">
+  <h2>{{this.product.title}}</h2>
+
+  <div class="product-image" *ngIf="this.product.image">
+    <img [src]="this.product.image.url" alt="{{this.product.image.alt}}" *ngIf="this.product.image"/>
+  </div>
+
+  <p [innerHTML]="this.product.body"></p>
+  <div class='features' *ngIf="this.product.features.length">
+    <h3>Features</h3>
+    <ul>
+      <li *ngFor="let f of this.product.features">{{f}}</li>
+    </ul>
+  </div>
+
+  <div class="features" *ngIf="this.product.featuresRendered">
+    <h3>Features</h3>
+    <div [innerHTML]="this.product.featuresRendered"></div>
+  </div>
+</div>
